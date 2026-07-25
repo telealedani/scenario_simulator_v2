@@ -26,7 +26,7 @@ PrivateAction::PrivateAction(const pugi::xml_node & node, Scope & scope)
       {       "LongitudinalAction", [&](const auto & node) { return make<LongitudinalAction>(node, scope);                         } },
       {            "LateralAction", [&](const auto & node) { return make<     LateralAction>(node, scope);                         } },
       {         "VisibilityAction", [&](const auto & node) { throw UNSUPPORTED_ELEMENT_SPECIFIED(node.name()); return unspecified; } },
-      {        "SynchronizeAction", [&](const auto & node) { throw UNSUPPORTED_ELEMENT_SPECIFIED(node.name()); return unspecified; } },
+      {        "SynchronizeAction", [&](const auto & node) { return make<SynchronizeAction>(node, scope);                         } },
       { "ActivateControllerAction", [&](const auto & node) { throw UNSUPPORTED_ELEMENT_SPECIFIED(node.name()); return unspecified; } },
       {         "ControllerAction", [&](const auto & node) { return make<  ControllerAction>(node, scope);                         } },
       {           "TeleportAction", [&](const auto & node) { return make<    TeleportAction>(node, scope);                         } },

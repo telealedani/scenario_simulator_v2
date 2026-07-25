@@ -20,6 +20,7 @@
 #include <openscenario_interpreter/syntax/lateral_action.hpp>
 #include <openscenario_interpreter/syntax/longitudinal_action.hpp>
 #include <openscenario_interpreter/syntax/routing_action.hpp>
+#include <openscenario_interpreter/syntax/synchronize_action.hpp>
 #include <openscenario_interpreter/syntax/teleport_action.hpp>
 #include <pugixml.hpp>
 
@@ -59,7 +60,7 @@ DEFINE_LAZY_VISITOR(
   CASE(LongitudinalAction),  //
   CASE(LateralAction),       //
   // CASE(VisibilityAction),
-  // CASE(SynchronizeAction),
+  CASE(SynchronizeAction),
   // CASE(ActivateControllerAction),
   CASE(ControllerAction),  //
   CASE(TeleportAction),    //
@@ -71,7 +72,7 @@ DEFINE_LAZY_VISITOR(
   CASE(LongitudinalAction),  //
   CASE(LateralAction),       //
   // CASE(VisibilityAction),
-  // CASE(SynchronizeAction),
+  CASE(SynchronizeAction),
   // CASE(ActivateControllerAction),
   CASE(ControllerAction),  //
   CASE(TeleportAction),    //

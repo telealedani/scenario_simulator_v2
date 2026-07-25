@@ -517,6 +517,12 @@ public:
       return core->getEntity(entity_ref).requestSpeedChange(std::forward<decltype(xs)>(xs)...);
     }
 
+    template <typename... Ts>
+    static auto applySynchronizeAction(const std::string & entity_ref, Ts &&... xs)
+    {
+      return core->getEntity(entity_ref).requestSynchronize(std::forward<decltype(xs)>(xs)...);
+    }
+
     template <
       typename PoseType, typename... Ts,
       typename = std::enable_if_t<
@@ -556,6 +562,12 @@ public:
     static auto evaluateCollisionCondition(Ts &&... xs) -> bool
     {
       return core->checkCollision(std::forward<decltype(xs)>(xs)...);
+    }
+
+    template <typename... Ts>
+    static auto evaluateIsNearbyPosition(const std::string & name, Ts &&... xs) -> bool
+    {
+      return core->getEntity(name).isNearbyPosition(std::forward<decltype(xs)>(xs)...);
     }
 
     static auto evaluateBoundingBoxEuclideanDistance(
